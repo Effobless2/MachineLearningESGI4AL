@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>ML PokéGiMon</title>
+</head>
+<body>
+
+<h1>Pokemon or Digimon ? That is the question</h1>
+<div class="row">
+
+    <div class="col-md-6">
+        <div class="col-md-5">
+            <label>Image à analyser : </label>
+            <input type="file" id="fileUploader" class="form-control" accept="image/*"/>
+        </div>
+        
+        <div class="col-md-5">
+            <label>Algorithme : </label>
+            <select id="algoSelector" class="form-control">
+                <option value="1">Neural Network</option>
+                <option value="2">caca</option>
+                <option value="3">caca</option>
+                <option value="4">caca</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button class="form-control btn btn-primary" id="submitBtn">Analyser</button>
+        </div>
+        <div  class="col-md-6 row">
+            <label>Résultat : </label>
+            <p id="resultTitle"></p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <img id="blah" src="#" alt="your image" />
+    </div>
+</div>
+
+</body>
+<script>
+    $('#submitBtn').on('click',() => sendAnalysis());
+    $("#fileUploader").on('change', () => readURL());
+
+    function readURL() {
+        let input = document.getElementById('fileUploader');
+        if (input.files && input.files[0]) {
+            console.log('caca');
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#blah').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+        }
+    }
+
+    function successFunction(result) {
+        console.log(result);
+        document.getElementById('resultTitle').innerHTML = result;
+    }
+
+    function sendAnalysis() {
+        let fileUploader = document.getElementById("fileUploader");
+        if (!fileUploader.files ||
+            !fileUploader.files.length > 0) {
+            alert("Choose a file, please");
+            return;
+        }
+        let image = fileUploader.files[0];
+
+
+        let selector = document.getElementById("algoSelector");
+        if (!selector.value)
+            alert("Choose an algorithm, please");
+        
+        let algorithm = selector.value;
+
+        console.log(algorithm);
+
+        let formData = new FormData();
+        formData.append('file', image);
+        $.ajax({
+            type: 'POST',
+            url: `http://localhost:8080/${algorithm}`,
+            data: image,
+            processData: false,
+            success: successFunction
+        })
+    }
+</script>
+</html>
