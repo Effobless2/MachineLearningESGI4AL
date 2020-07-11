@@ -4,10 +4,10 @@ host_port = 8080
 
 from ml import hello
 
-algoFileName1 = 'Pokémon' #FAUT QUE TU LES RENTRE TOI-MEME
-algoFileName2 = 'algo2.ptp' #FAUT QUE TU LES RENTRE TOI-MEME
-algoFileName3 = 'algo3.ptp' #FAUT QUE TU LES RENTRE TOI-MEME
-algoFileName4 = 'algo4.ptp' #FAUT QUE TU LES RENTRE TOI-MEME
+algoFileName1 = 'model'
+algoFileName2 = 'none'
+algoFileName3 = 'none'
+algoFileName4 = 'none'
 
 def getModelName(input):
     result = algoFileName1
@@ -22,7 +22,6 @@ def getModelName(input):
     else :
         result = algoFileName4
     return result
-
 
 class MyServer(BaseHTTPRequestHandler):
     def do_HEAD(self):
@@ -44,7 +43,6 @@ class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
         self.do_HEAD()
         self.wfile.write('OK'.encode('utf-8'))
-
 
 if __name__ == '__main__':
     http_server = HTTPServer((host_name, host_port), MyServer)
