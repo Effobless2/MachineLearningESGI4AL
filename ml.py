@@ -9,6 +9,7 @@ import io
 import base64
 
 def hello(image, modelFileName):
+	print(modelFileName)
 
 	b64_bytes = base64.b64encode(image)
 	b64_string = b64_bytes.decode()

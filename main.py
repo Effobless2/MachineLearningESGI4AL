@@ -4,8 +4,8 @@ host_port = 8080
 
 from ml import hello
 
-algoFileName1 = 'model'
-algoFileName2 = 'none'
+algoFileName1 = 'linear'
+algoFileName2 = 'conv'
 algoFileName3 = 'none'
 algoFileName4 = 'none'
 

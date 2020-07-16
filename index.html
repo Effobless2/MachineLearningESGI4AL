@@ -19,8 +19,8 @@
         <div class="col-md-5">
             <label>Algorithme : </label>
             <select id="algoSelector" class="form-control">
-                <option value="1">Neural Network</option>
-                <option value="2">caca</option>
+                <option value="1">Linear Model</option>
+                <option value="2">Convolutional Network</option>
                 <option value="3">caca</option>
                 <option value="4">caca</option>
             </select>
@@ -46,7 +46,6 @@
     function readURL() {
         let input = document.getElementById('fileUploader');
         if (input.files && input.files[0]) {
-            console.log('caca');
             var reader = new FileReader();
             reader.onload = function(e) {
                 $('#blah').attr('src', e.target.result);
