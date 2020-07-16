@@ -3,33 +3,29 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>ML PokéGiMon</title>
+    <title>ML CatiDog</title>
 </head>
 <body>
 
-<h1>Pokemon or Digimon ? That is the question</h1>
+<h1>Cat or dog ? That is the question</h1>
 <div class="row">
-
     <div class="col-md-6">
         <div class="col-md-5">
-            <label>Image à analyser : </label>
+            <label>Image to be analyzed: </label>
             <input type="file" id="fileUploader" class="form-control" accept="image/*"/>
         </div>
-        
         <div class="col-md-5">
-            <label>Algorithme : </label>
+            <label>Algorithm: </label>
             <select id="algoSelector" class="form-control">
                 <option value="1">Linear Model</option>
                 <option value="2">Convolutional Network</option>
-                <option value="3">caca</option>
-                <option value="4">caca</option>
             </select>
         </div>
         <div class="col-md-2">
-            <button class="form-control btn btn-primary" id="submitBtn">Analyser</button>
+            <button class="form-control btn btn-primary" id="submitBtn">Analyse</button>
         </div>
         <div  class="col-md-6 row">
-            <label>Résultat : </label>
+            <label>Result: </label>
             <p id="resultTitle"></p>
         </div>
     </div>
