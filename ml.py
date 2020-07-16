@@ -25,11 +25,6 @@ def hello(image, modelFileName):
 	img_reshape = img_reshape/255.0
 
 	prediction = model.predict(img_reshape)[0][0]
-	prediction = int(round(prediction, 0))
-
-	if prediction:
-		print('chient')
-		return "CHIEN"
-	else:
-		print('chiat')
-		return "CHAT"
+	print(prediction)
+	
+	return "Dog: " + str(round(prediction * 100, 2)) + "%; Cat: " + str(round(100 - (prediction * 100), 2)) + "%"

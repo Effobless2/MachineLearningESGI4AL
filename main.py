@@ -6,7 +6,7 @@ from ml import hello
 
 algoFileName1 = 'linear'
 algoFileName2 = 'conv'
-algoFileName3 = 'none'
+algoFileName3 = 'perceptron'
 algoFileName4 = 'none'
 
 def getModelName(input):
