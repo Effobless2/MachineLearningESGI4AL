@@ -3,7 +3,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>ML CatiDog</title>
+    <link rel="icon" href="icon.webp" />
+    <title>ML CatDog</title>
 </head>
 <body style="padding: 15pt">
 
@@ -27,11 +28,11 @@
         </div>
         <div  class="col-md-6">
             <h2 class="row">Result: </h2>
-            <p class= "row" style="padding: 15pt" id="resultTitle"></p>
+            <p style="padding: 15pt" id="resultTitle"></p>
         </div>
     </div>
     <div class="col-md-6">
-        <img id="blah" src="#" alt="your image" />
+        <img id="blah" src="./CatDog.png" alt="your image" style="max-width: 50%;" />
     </div>
 </div>
 
@@ -52,8 +53,9 @@
     }
 
     function successFunction(result) {
-        console.log(result);
-        document.getElementById('resultTitle').innerHTML = result;
+        let parsed = parseFloat(result);
+        let str = `<strong>I think it's a ${result > 50.0 ? "Dog" : "Cat"}</strong> </br> Dog: ${result}%; Cat: ${(100 - result).toFixed(2)}% `;
+        document.getElementById('resultTitle').innerHTML = str;
     }
 
     function sendAnalysis() {

@@ -27,4 +27,4 @@ def hello(image, modelFileName):
 	prediction = model.predict(img_reshape)[0][0]
 	print(prediction)
 	
-	return "Dog: " + str(round(prediction * 100, 2)) + "%; Cat: " + str(round(100 - (prediction * 100), 2)) + "%"
+	return str(round(prediction * 100, 2))
